@@ -1,0 +1,109 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+        <div class="form-group">
+          <label for="userName">User Name</label>
+          <input type="text" id="userName" class="form-control"
+          formControlName="userName">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="email"
+          formControlName="email">
+        </div>
+        <div class="form-group">
+          <label for="empId">Emp Id</label>
+          <input type="text" class="form-control" id="empId" formControlName="empId">
+        </div>
+      
+
+        <h3>Gender</h3>
+        <div class="form-group">
+         <label for="female" class="mx-2">Female
+          <input type="radio" id="female" value="female" name="gender">
+         </label>
+         <label for="male" class="mx-2">Male
+          <input type="radio" id="male" value="male" name="gender">
+         </label>
+
+         <label for="others" class="mx-2">Others
+          <input type="radio" id="others" value="others" name="gender">
+         </label>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-6" formGroupName="currentAddress">
+            <h2>Current Address</h2>
+           <div class="form-group">
+            <!-- <input type="text" formControlName="country" class="form-control" placeholder="country"> -->
+            <select class="form-control" formControlName="country">
+              <option value="selectcountry">Select Country</option>
+              <option [value]="con.Country" *ngFor="let con of countryInfo">
+              {{con.Country}}
+              </option>
+            </select>
+           </div>
+           <div class="form-group">
+            <input type="text" formControlName="state" class="form-control" placeholder="state">
+           </div>
+           <div class="form-group">
+            <input type="text" formControlName="city" class="form-control" placeholder="city">
+           </div>
+           <div class="form-group">
+            <input type="text" formControlName="zipcode" class="form-control" placeholder="zipcode">
+           </div>
+
+          </div>
+
+
+          <div class="col-md-6" formGroupName="permanentAddress">
+            <h2>Permanent Address
+
+             
+            </h2>
+            <div class="form-group">
+              <select class="form-control" formControlName="country">
+                <option value="">Select Country</option>
+                <option [value]="county.Country" *ngFor="let county of countryInfo">
+                {{county.Country}}
+                </option>
+              </select>
+
+              <div class="form-group mt-3">
+                <input type="text" formControlName="state" class="form-control" placeholder="state">
+               </div>
+               <div class="form-group">
+                <input type="text" formControlName="city" class="form-control" placeholder="city">
+               </div>
+               <div class="form-group">
+                <input type="text" formControlName="zipcode" class="form-control" placeholder="zipcode">
+               </div>
+
+               <div class="col-md-12">
+                <label for="tick">
+                  <input type="checkbox" formControlName="tick" class="mr-2">Current Address is same as Permanent Address
+                </label>
+                
+
+               </div>
+
+               
+            </div>
+
+          </div>
+        </div>
+        <div class="text-right">
+          <button type="submit" class="btn btn-primary">
+            Sign Up
+          </button>
+        </div>
+
+
+
+  
+    
+  </form>
+  </div>
+</div>
